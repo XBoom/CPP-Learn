@@ -49,6 +49,15 @@ Time Time::operator+(const Time & t) const
     return sum;
 }
 
+Time operator*(double m, const Time & t)	//friend not used in definition
+{
+	Time sum;
+    sum.minutes = t.minutes % 60;
+    sum.hours =  t.hours + t.minutes * m / 60;	
+  	sum.hours = sum.hours % 24;
+    return sum;
+}
+
 
 void Time::Show() const
 {
